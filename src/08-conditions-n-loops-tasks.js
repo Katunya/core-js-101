@@ -224,8 +224,9 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  if (str === '') return '';
+  return reverseString(str.substr(1)) + str.charAt(0);
 }
 
 
@@ -241,8 +242,12 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  let fullNum;
+  if (typeof num !== 'string') {
+    fullNum = num.toString();
+  }
+  return reverseString(fullNum.substr(1)) + fullNum.charAt(0);
 }
 
 
@@ -335,8 +340,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
